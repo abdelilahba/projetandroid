@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class editproduit extends AppCompatActivity {
     Spinner sp;
     MyDBProduit db;
-    EditText ed1,ed2,ed3,ed4;
+    EditText ed1,ed2,ed3,ed4,ed5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +36,31 @@ public class editproduit extends AppCompatActivity {
         ed2=findViewById(R.id.ed2);
         ed3=findViewById(R.id.ed3);
         ed4=findViewById(R.id.ed4);
-        sp.getOnItemSelectedListener(new Oni)
+        ed5=findViewById(R.id.ed5);
+        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
     }
 
     public void valider(View view) {
         produit p=new produit();
+        p.setId(Integer.parseInt(ed5.getText().toString()));
         p.setLibelle(ed1.getText().toString());
+        p.setFamille(ed2.getText().toString());
+        p.setPrixAchat(Double.parseDouble(ed3.getText().toString()) );
+        p.setPrixVente(Double.parseDouble(ed4.getText().toString()));
+        MyDBProduit.update_produit(db.getWritableDatabase(),p);
 
 
     }

@@ -22,6 +22,14 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="id"
+        style="@style/zonesaisie"
+        android:id="@+id/ed5">
+
+    </EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="libelle"
         style="@style/zonesaisie"
         android:id="@+id/ed1">
